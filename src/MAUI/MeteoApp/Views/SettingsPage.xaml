@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:MeteoApp.ViewModels"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="MeteoApp.Views.SettingsPage"
+             x:DataType="vm:SettingsPageViewModel"
+             Title="Настройки">
+    <VerticalStackLayout Margin="3">
+        <Label Text="IP-адрес" FontSize="Large" />
+        <Entry Text="{Binding IpAddress}"  Placeholder="Введите ip-адрес платы в сети wifi" >
+            <Entry.Behaviors>
+                <toolkit:EventToCommandBehavior
+                    EventName="TextChanged"
+                    Command="{Binding InputIpAddressCommand}" />
+            </Entry.Behaviors>
+        </Entry>
+        <Label TextColor="Red" Text="{Binding Error}" />
+        <Button Text="Сохранить" Command="{Binding UpdateIpAddressCommand}" />
+    </VerticalStackLayout>
+</ContentPage>

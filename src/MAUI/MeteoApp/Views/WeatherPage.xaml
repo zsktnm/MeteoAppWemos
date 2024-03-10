@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:MeteoApp.ViewModels"
+             x:Class="MeteoApp.Views.WeatherPage"
+             x:DataType="vm:WeatherPageViewModel"
+             Title="Погода">
+    <ContentPage.Resources>
+        
+    </ContentPage.Resources>
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200" />
+                <RowDefinition Height="200" />
+                <RowDefinition Height="100" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Frame Margin="3">
+                <VerticalStackLayout>
+                    <Image Source="{AppThemeBinding Light=temperature.svg, Dark=temperature_dark.svg}" MaximumHeightRequest="100" />
+                    <Label Margin="0,25,0,0" Style="{StaticResource CategoryTitle}" >
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="{Binding Temperature, StringFormat='{0:0.0} °C'}" />
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </VerticalStackLayout>
+            </Frame>
+            <Frame Grid.Column="1" Margin="3">
+                <VerticalStackLayout>
+                    <Image Source="{AppThemeBinding Light=humidity.svg, Dark=humidity_dark.svg}" MaximumHeightRequest="100" />
+                    <Label Margin="0,25,0,0" Style="{StaticResource CategoryTitle}" >
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="{Binding Humidity, StringFormat='{0:0.0} %'}" />
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </VerticalStackLayout>
+            </Frame>
+            <Frame Grid.Row="1" Margin="3">
+                <VerticalStackLayout>
+                    <Image Source="{AppThemeBinding Light=pressure.svg, Dark=pressure_dark.svg}" MaximumHeightRequest="100" />
+                    <Label Margin="0,25,0,0" Style="{StaticResource CategoryTitle}" >
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="{Binding Pressure, StringFormat='{0:0.0} мм рт. ст.'}" />
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </VerticalStackLayout>
+            </Frame>
+            <Frame Grid.Row="1" Grid.Column="1" Margin="3">
+                <VerticalStackLayout>
+                    <Image Source="{AppThemeBinding Light=light.svg, Dark=light_dark.svg}" MaximumHeightRequest="100" />
+                    <Label Margin="0,25,0,0" Style="{StaticResource CategoryTitle}" >
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="{Binding Light, StringFormat='{0:0} Лк'}" />
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </VerticalStackLayout>
+            </Frame>
+            <Button 
+                Command="{Binding UpdateCommand}"
+                FontSize="18" 
+                Grid.Row="3" 
+                Grid.ColumnSpan="2" 
+                VerticalOptions="Center" 
+                Margin="3, 0" 
+                HorizontalOptions="Fill" 
+                Text="Обновить" />
+        </Grid>
+    </ScrollView>
+</ContentPage>
