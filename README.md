@@ -11,6 +11,20 @@
 - датчик BMP180 для определения атмосферного давления;
 - датчик TroykaLight с фоторезистором GL5528;
 
+## Используемые билиотеки
+
+Для скетча:
+- Adafruit BMP085 Unified;
+- Adafuit DHT Sensor Library;
+- ArduinoJson;
+- ESP8266WiFi;
+- ESPAsyncTCP;
+- ESPAsyncWebServer;
+- TroykaLight;
+В MAUI:
+- CommunityToolkit.Maui;
+- CommunityToolkit.Mvvm;
+
 ## Схема подключения
 (будет добавлено позже)
 
