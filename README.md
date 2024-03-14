@@ -21,6 +21,7 @@
 - ESPAsyncTCP;
 - ESPAsyncWebServer;
 - TroykaLight;
+   
 В MAUI:
 - CommunityToolkit.Maui;
 - CommunityToolkit.Mvvm;
